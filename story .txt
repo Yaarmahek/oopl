@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void countNonAStartingLines() {
+    ifstream file("STORY.TXT");
+    if (!file) {
+        cerr << "Error: Unable to open file STORY.TXT" << endl;
+        return;
+    }
+
+    string line;
+    int count = 0;
+
+    // Read file line by line
+    while (getline(file, line)) {
+        // Trim leading spaces
+        size_t firstCharPos = line.find_first_not_of(" \t");
+        if (firstCharPos != string::npos && toupper(line[firstCharPos]) != 'A') {
+            count++;
+        }
+    }
+
+    file.close();
+
+    cout << "Number of lines not starting with 'A': " << count << endl;
+}
+
+int main() {
+    countNonAStartingLines();
+    return 0;
+}
+STORY.TXT
+The roses are red.
+A girl is playing there.
+There is a playground.
+An aeroplane is in the sky.
+Numbers are not allowed in the password.
