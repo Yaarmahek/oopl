@@ -1,0 +1,166 @@
+#include<iostream>
+using namespace std;
+
+class Singleheritance
+{
+	public:  int length,breadth;
+		void read()
+		{
+		cout<<"Enter the lenghth of reactangle:"<<endl;
+		cin>>length;
+		cout<<"Enter the breadth of reactangle:"<<endl;
+		cin>>breadth;
+		
+		}
+		 
+};
+class Reactangle:public Singleheritance
+{
+	public:void area()
+	{
+		float area1;
+		cout<<"Area of reactangle is:"<<endl;
+		area1=length*breadth;
+		cout<<area1;
+		
+	}
+
+};
+
+class Multilevelinheritance
+{
+	public : float height;
+		int side1,side2;
+		void read2()
+		{
+		
+			cout<<"enter the height of triangle:"<<endl;
+			cin>>height;
+			cout<<"Enter the side1 of triangle:"<<endl;
+			cin>>side1;
+			cout<<"Enter the side2 of triangle:"<<endl;
+			cin>>side2;
+		}
+};
+class Multchild1:public  Multilevelinheritance
+{
+	public:
+		int perimeter1;
+		void peri()
+		{
+			cout<<"perimeter of triangle is"<<endl;
+			perimeter1=height+side1+side2;
+			cout<<perimeter1<<endl;
+		}		
+
+};
+class Multchild2:public Multchild1
+{
+	public: 
+		float semiper;
+		void semi()
+		{
+			cout<<"Semiperimeter of triangle is"<<endl;
+			semiper=perimeter1/2;
+			cout<<semiper<<endl;
+		}
+
+};
+
+class Multipleinheritance1
+{
+	public: float PI=3.14,area2;
+		int radius1;
+		void input1()
+		{
+		cout<<"Enter the radius of circle:"<<endl;
+		cin>>radius1;
+		
+		area2=PI*radius1*radius1;
+		
+		
+		}
+
+
+};
+class Multipleinheritance2
+{
+	public :float PI=3.14,perimeter;
+		int radius2;
+	
+	 	void input2()
+		{
+			cout<<"Enter the radius of circle:"<<endl;
+			cin>>radius2;
+			
+			perimeter=2*PI*radius2;
+			
+	
+		}
+
+
+};
+
+class Multipleinherit3:public Multipleinheritance1,public Multipleinheritance2
+{
+		public :
+				void display()
+				{
+					cout<<"area of circle is :"<<endl;
+					cout<<area2<<endl;
+					cout<<"perimeter of circle:"<<endl;
+					cout<<perimeter<<endl;
+				}
+		
+		
+};
+
+
+int main()
+{	
+	int ch,n;
+	 Reactangle r1;
+	 Multchild2 m1;
+	 Multipleinherit3 m2;
+	do
+	{
+		
+	cout<<"***********DISPLAY MENU*************";
+	cout<<"\n 1. single inherit";
+	cout<<"\n 2. multilevel inherit";
+	cout<<"\n 3. multiple inherit";
+	cout<<"\n 4. Exit";
+	cout<<"\n Enter your choices"<<endl;
+	cin>>ch;
+	switch(ch)
+	{
+		case 1: 
+			r1.read();
+			r1.area();
+			break;
+			
+		case 2:
+			
+			m1.read2();
+			m1.peri();
+			m1.semi();
+			break;
+			
+		case 3:	
+			
+			m2.input1();
+			m2.input2();
+			m2.display();
+			break;
+	
+	
+		case 4:  cout<<"EXIT"<<endl;
+			 break;
+			
+	}
+
+	}while(ch!=4);
+	return 0;
+}
+
+
