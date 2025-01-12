@@ -1,0 +1,104 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+class array3
+{
+	public:int i,j,n,a[10],c[10];
+	public:void accept()
+	{
+		cout<<"Size of array=";
+		cin>>n;
+		cout<<"Enter the Elements of array="<<endl;
+		for(i=0;i<n;i++)
+		{
+			cout<<"a["<<i<<"]=";
+			cin>>a[i];
+		}
+	}
+	public:void display()
+	{
+		cout<<"Displaying array="<<endl;
+		for(i=0;i<n;i++)
+		{
+			cout<<a[i]<<"\t";
+		}
+		cout<<endl;
+	}
+	public:void range()
+	{
+		cout<<"Range of array="<<endl;
+		cout<<"sort"<<endl;
+		//int s=sizeof(a);
+		sort(a,a+n);
+		for(i=0;i<n;i++)
+		{
+			cout<<a[i]<<"\t";
+		}
+		cout<<endl;
+		int max=a[n-1];
+		int min=a[0];
+		int r=max-min;
+		cout<<"range="<<r;
+		cout<<endl;	
+	}
+	public:void copy()
+	{
+		cout<<"array copied successfully"<<endl;
+		for(i=0;i<n;i++)
+		{
+			c[i]=a[i];
+		}
+		cout<<"displaying copied array="<<endl;
+		for(i=0;i<n;i++)
+		{
+			cout<<c[i]<<"\t";
+		}
+		cout<<endl;
+	}
+	public:void size()
+	{
+		cout<<"Size of the array=";
+		cout<<n<<endl;
+	}
+};
+int main()
+{
+	int ch;
+	for(int i=0;i<20;i++)
+	{
+	cout<<"1. Accept"<<endl;
+	cout<<"2. Display"<<endl;
+	cout<<"3. Find Range"<<endl;
+	cout<<"4. Copy"<<endl;
+	cout<<"5. Size"<<endl;
+	array3 a1;
+	cout<<"Enter your choice=";
+	cin>>ch;
+	cout<<endl;
+	switch(ch)
+	{
+		case 1:
+			a1.accept();
+			break;
+		case 2:
+			a1.display();
+			break;
+		case 3:
+			a1.range();
+			break;
+		case 4:
+			a1.copy();
+			break;
+		case 5:
+			a1.size();
+			break;
+		default:
+			cout<<"your choice is wrong!!!!!!!!";
+			cout<<endl;
+	}
+	cout<<endl;
+	}
+	cout<<endl;
+	return 0;
+}
+
