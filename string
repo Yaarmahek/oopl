@@ -1,0 +1,103 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class My_string
+{
+	public:char s1[10],s2[10];
+	int i,len;
+	
+	void read()
+	{
+		cout<<"Enter first string: " <<endl;
+		cin>>s1;
+	}
+	
+	void display()
+	{
+		len=0;
+		while(s1[len])
+		{     
+			len++;
+		}
+		cout<<"Displaying  a string: " <<endl;
+		for(i=0;i<len;i++)
+		{
+			cout<<s1[i] ;
+		}
+	}
+	
+	void length()
+	{
+		len=0;
+		while(s1[len])
+		{
+			len++;
+		}
+		cout<<"Length of string: "<<len <<endl;
+	}
+	
+	void concate()
+	{
+		cout<<"Enter another string: ";
+		cin>>s2;
+		string sc1,sc2;
+		sc1=(string)s1;
+		sc2=(string)s2;
+		string c=sc1+" "+sc2;
+		cout<<"Concatenating the strings: "<<c <<endl;
+	}
+	
+	void reverse()
+	{
+		cout<<"Reversed string is: " <<endl;
+		for(i=len-1;i>=0;i--)
+		{
+			cout<<s1[i] <<endl;
+		}
+	}
+};
+
+int main()
+{
+         My_string s;
+          int ch;
+          for(int i=0;i<=20;i++)
+          {
+         cout<<"1. Read"<<endl;
+         cout<<"2. Display"<<endl;
+         cout<<"3. Length"<<endl;
+         cout<<"4. Concatenate"<<endl;
+         cout<<"5. Reverse"<<endl;
+         cout<<"Enter your choice: ";
+         cin>>ch;
+         switch(ch)
+         {
+         	case 1:
+         		 s.read();
+         		 break;
+         		 
+         	 case 2:
+         		 s.display();
+         		 break;
+         		
+         	 case 3:
+         		 s.length();
+         		 break;
+         		  
+         	 case 4:
+         		  s.concate();
+         		  break;
+         		  
+         	  case 5:
+         		   s.reverse();
+         		   break;
+         		   
+         	   default:
+         	 	  cout<<"Invalid Choice"<<endl;
+         }
+   
+         }
+ 	   return 0;
+ }
+  
+
