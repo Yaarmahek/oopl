@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+ 
+class Convert {
+protected:
+    double val1, val2;
+ 
+public:
+    Convert(double v1) : val1(v1), val2(0) {}
+ 
+    double getInit() const {
+        return val1;
+    }
+ 
+    double getConv() const {
+        return val2;
+    }
+ 
+    virtual void compute() = 0;
+};
+ 
+class CelsiusToFahrenheit : public Convert {
+public:
+    CelsiusToFahrenheit(double celsius) : Convert(celsius) {}
+ 
+    void compute() override {
+        val2 = (val1 * 9 / 5) + 32;
+    }
+};
+ 
+class InchesToCentimeters : public Convert {
+public:
+    InchesToCentimeters(double inches) : Convert(inches) {}
+ 
+    void compute() override {
+        val2 = val1 * 2.54;
+    }
+};
+ 
+int main() {
+    double input;
+    
+    cout << "Enter a temperature in Celsius: ";
+    cin >> input;
+    CelsiusToFahrenheit ctf(input);
+    ctf.compute();
+    cout << input << " Celsius is equal to " << ctf.getConv() << " Fahrenheit." << endl;
+ 
+    cout << "Enter a length in inches: ";
+    cin >> input;
+    InchesToCentimeters itc(input);
+    itc.compute();
+    cout << input << " inches is equal to " << itc.getConv() << " centimeters." << endl;
+ 
+    return 0;
+}
