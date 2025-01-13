@@ -1,97 +1,175 @@
 #include<iostream>
-#include<string>
 using namespace std;
-class publication
-{
-	protected:
-	string title;
-	float price;
-	public:
-	publication()
-	{
-		title=" ";
-		price=0.0;
-	}
-	publication(string t,float p)
-	{
-		title =t;
-		price=p;
-	}
-	public:
-	void getdata()
-	{
-		cout<<"enter the title of publication:";
-		cin>>title;
-		cout<<"enter the price of publication:";
-		cin>>price;
-	}
-	void putdata(void)
-	{
-		cout<<"publication title:"<<title<<endl;
-		cout<<"publication price:"<<price<<endl;
-	}
+
+class Publications{
+      public :
+              string title;
+              float price;
+              
+              Publications()
+              {
+                   title="";
+                   price=0.0;
+              }
+
+              void getdata()
+              {
+                   cout <<"\n Enter the Name of Book : ";
+                   cin >>title;
+                   cout <<"\n Enter the Price of Book : ";
+                   cin >>price;
+              }
+              
+              void display()
+              {
+                   cout <<"\n Title : "<<title;
+                   cout <<"\n Price : "<<price;
+              }
 };
-class book:public publication
-{
-	int pagecount;
-	public:
-	book()
-	{
-		pagecount=0;
-	}
-	book(string t,float p,int pc):publication(t,p)
-	{
-		pagecount=pc;
-	}
-	void getdata(void)
-	{
-		publication::getdata();
-		cout<<"Enter book page count:";
-		cin>>pagecount;
-	}
-	void putdata(void)
-	{
-		publication::putdata();
-		cout<<"Book page count:"<<pagecount<<endl;
-	}
+
+class Book:public Publications {
+           public :
+                   int page_count;
+                   
+                   Book()
+                   {
+                        page_count=0;
+                   }
+                                   
+                   
+                   void pagec()
+                   {
+                        cout <<"\n Enter the Page count for book :";
+                        cin >>page_count;
+                   }
+                   
+                   void pagedisp()
+                   {
+                        cout <<"\n Page Count :"<<page_count<<" pages";
+                   }
 };
-class CD:public publication
-{
-	float time1;
-	public:
-	CD()
-	{
-		time1=0.0;
-	}
-	CD(string t,float p,float tim):publication(t,p)
-	{
-		time1=tim;
-	}
-	void getdata(void)
-	{
-		publication::getdata();
-		cout<<"Enter tape's playing time:";
-		cin>>time1;
-	}
-	void putdata(void)
-	{
-		publication::putdata();
-		cout<<"tape's playing time:"<<time1<<endl;
-	}
+
+class Tape:public Publications {
+           public :
+                   float time;
+                   
+                   Tape()
+                   {
+                        time=0.0;
+                   }
+                   
+                   void tapet()
+                   {
+                        cout <<"\n Enter the time length:";
+                        cin >>time;
+                   }
+                   
+                   void tapedisp()
+                   {
+                        cout <<"\n Time : "<<time<<" Mins";
+                   } 
 };
+
 int main()
 {
-	cout<<endl<<"Book data"<<endl;
-	book b("c++",230,300);
-	b.putdata();
-	cout<<endl<<"CD data"<<endl;
-	CD c("c++",100,120.5);
-	c.putdata();
-	cout<<"\n enter new details of book:"<<endl;
-	b.getdata();
-	c.getdata();
-	cout<<"\n Book data enter by user:"<<endl;
-	b.putdata();
-	c.putdata();
-	return 0;
-}
+    Book b1;
+    Tape t1;
+    
+    
+   /* cout <<"\n Accepting details of Book......\n";
+    b1.getdata();
+    b1.pagec();
+    cout <<"\n\n Accepting details of Tape......\n";
+    t1.tapet();*/
+    try {
+          int x;
+         cout <<"\n Accepting details of Book......\n";
+         b1.getdata();
+         b1.pagec();
+         cout <<"\n\n Accepting details of Tape......\n";
+         t1.tapet();
+         
+         if (b1.price==0 || b1.page_count==0 ||t1.time==0 ){
+            b1.title=" ";
+            b1.price=0;
+            b1.page_count=0;	
+            t1.time=0;
+            throw x;
+         }
+    }
+    catch (int x)
+    {
+          cout <<"\n A Value is Not Inserted in the details!!!!!!";
+        /*  b1.title=" ";
+          b1.price==0;
+          b1.page_count==0;	
+          t1.time==0;*/
+          
+    }
+    cout <<"\n Displaying details of Book......\n";
+    b1.display();
+    b1.pagedisp();
+    
+    cout <<"\n\n Displaying details of Tape......\n";
+    b1.display();
+    t1.tapedisp();
+    cout <<"\n";
+
+    return 0;
+}                        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
